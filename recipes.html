@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Healthy Recipes • GreenBite</title>
+<meta name="description" content="GreenBite — wellness through meals, movement, and mindfulness.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f1320">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img alt="logo" src="assets/favicon.png"><span>GreenBite</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="mindfulness.html">Mindfulness</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+<main class="container">
+
+<h1>Healthy Recipes</h1>
+<p class="notice">Use the search and filters. Click a card to view full recipe, ingredients, and nutrition table.</p>
+
+<div class="form-row" style="margin:14px 0">
+  <div><label for="recipeSearch">Search</label><input id="recipeSearch" placeholder="e.g., oats, salad"></div>
+  <div>
+    <label for="recipeCategory">Category</label>
+    <select id="recipeCategory">
+      <option value="all">All</option>
+      <option>Breakfast</option>
+      <option>Lunch</option>
+      <option>Dinner</option>
+      <option>Snacks</option>
+    </select>
+  </div>
+</div>
+
+<div id="recipeGrid" class="grid" aria-live="polite"></div>
+
+<div class="modal-backdrop" id="recipeModalBackdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="recipeTitle">
+    <button class="btn ghost" id="closeRecipeModal" style="float:right">Close</button>
+    <h2 id="recipeTitle">Recipe</h2>
+    <img id="recipeImg" alt="" style="border-radius:12px; margin:8px 0">
+    <p id="recipeDesc"></p>
+    <h3>Ingredients</h3>
+    <ul id="recipeIngredients"></ul>
+    <h3>Steps</h3>
+    <ol id="recipeSteps"></ol>
+    <h3>Nutrition</h3>
+    <table class="table" id="recipeNutrition"></table>
+  </div>
+</div>
+<script src="js/recipes.js?v=2" defer></script>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <form id="newsletterForm" class="form-row" style="align-items:end">
+      <div>
+        <label for="newsletterEmail">Join newsletter</label>
+        <input id="newsletterEmail" type="email" placeholder="you@example.com" required>
+      </div>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+    <p style="margin:10px 0 0">© 2025 GreenBite • <span class="badge">PWA enabled</span></p>
+  </div>
+</footer>
+<script src="js/script.js" defer></script>
+</body>
+</html>

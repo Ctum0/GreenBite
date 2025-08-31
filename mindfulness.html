@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mindfulness • GreenBite</title>
+<meta name="description" content="GreenBite — wellness through meals, movement, and mindfulness.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f1320">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img alt="logo" src="assets/favicon.png"><span>GreenBite</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="mindfulness.html">Mindfulness</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+<main class="container">
+
+<h1>Mindfulness</h1>
+<div class="grid">
+  <div class="card">
+    <h3>Breathing</h3>
+    <div id="breathCircle" style="width:200px;height:200px;border-radius:50%;margin:10px auto;background:radial-gradient(circle at 30% 30%, var(--accent-2), transparent 60%), rgba(255,255,255,.06); filter: blur(0);"></div>
+    <div id="breathCue" style="text-align:center;font-weight:700">Ready</div>
+    <button class="btn" id="startBreath" style="display:block;margin:10px auto 0">Start</button>
+  </div>
+
+  <div class="card">
+    <h3>Meditation Timer</h3>
+    <div class="form-row">
+      <div><label>Minutes</label><input id="medMinutes" type="number" value="10" min="1"></div>
+      <div><label>Sound</label>
+        <select id="ambientSound">
+          <option value="none">None</option>
+          <option value="chimes">Chimes</option>
+          <option value="rain">Rain</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" id="startMeditation" style="margin-top:10px">Start Session</button>
+    <div style="margin-top:10px">Remaining: <span id="medReadout" class="counter">10:00</span></div>
+    <p id="sessionCount" class="notice">Completed sessions: 0</p>
+  </div>
+</div>
+<script src="js/mindfulness.js"></script>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <form id="newsletterForm" class="form-row" style="align-items:end">
+      <div>
+        <label for="newsletterEmail">Join newsletter</label>
+        <input id="newsletterEmail" type="email" placeholder="you@example.com" required>
+      </div>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+    <p style="margin:10px 0 0">© 2025 GreenBite • <span class="badge">PWA enabled</span></p>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

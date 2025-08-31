@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home • GreenBite</title>
+<meta name="description" content="GreenBite — wellness through meals, movement, and mindfulness.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f1320">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img alt="logo" src="assets/favicon.png"><span>GreenBite</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="mindfulness.html">Mindfulness</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+<main class="container">
+
+<section class="hero">
+  <div class="panel">
+    <img src="assets/hero.svg" alt="GreenBite banner">
+  </div>
+  <h1>Wellness made simple</h1>
+  <p>Eat well, move daily, breathe deeply. One small habit at a time.</p>
+  <div class="ticker" id="quoteTicker">Loading quote…</div>
+</section>
+
+<section style="margin:28px 0">
+  <div class="grid">
+    <div class="card reveal">
+      <h3>Tip of the Day</h3>
+      <p id="dailyTip">Tip loading…</p>
+      <a class="btn" href="recipes.html">Find recipes</a>
+    </div>
+    <div class="card reveal">
+      <h3>Calculate your needs</h3>
+      <p>Estimate your BMR/TDEE and split macros for your goals.</p>
+      <a class="btn" href="calculator.html">Open calculator</a>
+    </div>
+    <div class="card reveal">
+      <h3>Quick workout</h3>
+      <p>Auto-generate a simple routine with a built-in rest timer.</p>
+      <a class="btn" href="workouts.html">Generate workout</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="container">
+    <form id="newsletterForm" class="form-row" style="align-items:end">
+      <div>
+        <label for="newsletterEmail">Join newsletter</label>
+        <input id="newsletterEmail" type="email" placeholder="you@example.com" required>
+      </div>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+    <p style="margin:10px 0 0">© 2025 GreenBite • <span class="badge">PWA enabled</span></p>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
