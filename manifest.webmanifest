@@ -1,0 +1,15 @@
+{
+  "name": "GreenBite",
+  "short_name": "GreenBite",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#081611",
+  "theme_color": "#48e38b",
+  "icons": [
+    {
+      "src": "assets/img/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

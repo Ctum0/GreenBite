@@ -1,0 +1,171 @@
+
+:root{
+  --bg:#081611;
+  --surface:#0f2a20;
+  --text:#e7f4ec;
+  --muted:#bcd5c7;
+  --brand:#48e38b;
+  --border:#1a3b2d;
+  --radius:.9rem;
+}
+
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height:1.5;
+  display:flex;            /* sticky footer */
+  flex-direction:column;
+}
+img{ max-width:100%; display:block }
+
+/* Utilities */
+.container{ width:100%; max-width:1100px; margin:0 auto; padding:0 16px 24px;}
+.mt-05{ margin-top:.5rem } .mt-1{ margin-top:.8rem } .mt-2{ margin-top:1.2rem }
+.hidden{ display:none !important }
+.center{ text-align:center }
+.link{ color:var(--brand); text-decoration:none }
+.link:hover{ text-decoration:underline }
+
+/* Skip link for accessibility */
+.skip-link{ position:absolute; left:-9999px }
+.skip-link:focus{ left:16px; top:10px; background:#000; color:#fff; padding:8px 10px; border-radius:6px; z-index:999 }
+
+/* Header / Nav (consistent) */
+.site-header{
+  position:sticky; top:0; z-index:10;
+  background:#0c1e18; border-bottom:1px solid var(--border);
+}
+.nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 16px }
+.brand{ display:flex; align-items:center; gap:10px; color:var(--text); text-decoration:none; font-weight:800 }
+.brand img{ width:28px; height:28px }
+.menu{ list-style:none; display:flex; gap:14px; margin:0; padding:0 }
+.menu a{ color:var(--text); text-decoration:none; padding:6px 8px; border-radius:8px }
+.menu a[aria-current="page"]{ color:var(--brand); font-weight:800; background:rgba(255,255,255,.06) }
+.hamburger{ display:none; background:none; border:1px solid var(--border); color:var(--text); padding:6px 8px; border-radius:.6rem }
+
+@media (max-width:760px){
+  .hamburger{ display:inline-flex; align-items:center; justify-content:center }
+  .menu{ display:none }
+  .menu.open{ display:flex; flex-direction:column; gap:8px; background:#0c1e18; padding:8px 0 }
+}
+
+/* Footer */
+.site-footer{ margin-top:auto; padding:16px; text-align:center; color:var(--muted); border-top:1px solid var(--border) }
+
+/* Card */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+
+/* Forms */
+label{ display:grid; gap:.35rem; font-weight:600 }
+input, select, textarea{
+  padding:.7rem .8rem;
+  background:#0f2a20; color:var(--text);
+  border:1px solid var(--border); border-radius:.7rem;
+}
+button{
+  background:#0f2a20; color:var(--text);
+  border:1px solid var(--border); border-radius:.6rem;
+  padding:.55rem .8rem; cursor:pointer;
+}
+button:hover{ filter:brightness(1.05) }
+.btn{ background:var(--brand); color:#06351a; border:0; padding:.6rem .9rem; border-radius:.6rem; font-weight:800 }
+
+/* ---------- Home ---------- */
+.hero{ display:flex; gap:16px; flex-wrap:wrap; margin-top:1rem; align-items:stretch; min-height:60vh }
+.brand-card{ flex:1 1 520px; display:flex; gap:14px; align-items:center }
+.brand-logo{
+  width:110px; height:110px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+  background: radial-gradient(circle at 30% 30%, rgba(72,227,139,.3), rgba(15,42,32,1));
+  border:1px solid var(--border);
+}
+.brand-copy{ flex:1 1 auto }
+.brand-copy h1{ margin:.2rem 0 .4rem; font-size:2rem }
+
+.hero-art{ flex: 300px; height: 400px; 
+  border-radius:var(--radius); 
+  border:1px solid var(--border); 
+  background: radial-gradient(60% 80% at 20% 30%, rgba(72,227,139,.2), rgba(15,42,32,1)) }
+.logo-art{ width:100%; height:100%; object-fit:contain; padding:20px; opacity: .10;}
+
+
+.cards{ display:flex; flex-wrap:wrap; gap:10px; }
+.cards .card{ flex:1 1 240px }
+
+/* ---------- Recipes ---------- */
+.controls{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.6rem }
+#recipe-grid{ display:flex; flex-wrap:wrap; gap:16px; margin-top:.8rem }
+.recipe-card{ flex:0 1 calc(33.333% - 16px); display:flex; flex-direction:column; overflow:hidden; cursor:pointer; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:0 6px 18px rgba(0,0,0,.25) }
+@media (max-width:900px){ .recipe-card{ flex-basis: calc(50% - 16px) } }
+@media (max-width:540px){ .recipe-card{ flex-basis: 100% } }
+.recipe-card img{ width:100%; height:180px; object-fit:cover; background:#0f2a20 }
+.recipe-body{ padding:12px; display:flex; flex-direction:column; gap:.35rem }
+.recipe-body p{ margin:0; color:var(--muted) }
+.pill{ display:inline-block; align-self:flex-start; margin-top:.3rem; border:1px solid var(--border); background:rgba(255,255,255,.06); padding:.2rem .55rem; border-radius:100vmax; font-weight:700; font-size:.85rem }
+.empty{ width:100%; text-align:center; border:1px dashed var(--border); border-radius:var(--radius); padding:1rem; color:var(--muted) }
+
+/* Modal */
+.modal{ position:fixed; inset:0; background:rgba(0,0,0,.5); display:flex; align-items:center; justify-content:center; padding:16px }
+.modal[hidden]{ display:none }
+.modal-card{ position:relative; width:min(900px, 100%); max-height:90vh; overflow:auto; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px }
+.modal-close{ position:absolute; right:12px; top:6px; font-size:28px; background:none; border:0; color:var(--text) }
+.nutrition{ width:100%; border-collapse:collapse; margin-top:.4rem }
+.nutrition th, .nutrition td{ border:1px solid var(--border); padding:.5rem; text-align:left }
+
+/* ---------- Calculator ---------- */
+.layout-2col{ display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start }
+.layout-2col .col{ flex:1 1 320px }
+.form-grid{ display:flex; flex-wrap:wrap; gap:12px; margin-top:.6rem }
+.form-grid > label{ flex:1 1 220px }
+.results{ margin-top:1rem }
+.numbers{ display:flex; flex-wrap:wrap; gap:12px }
+.num{ flex:1 1 220px; text-align:center; padding:1rem; background:var(--surface); border:1px solid var(--border); border-radius:.9rem }
+.num span{ display:block; font-size:2rem; font-weight:800 }
+.num small{ color:var(--muted) }
+.bars{ display:flex; flex-direction:column; gap:.6rem; margin-top:1rem }
+.bar{ position:relative; padding:.35rem .8rem; border:1px solid var(--border); border-radius:100vmax; overflow:hidden; background:#0f2a20 }
+.bar > span{ display:block; height:12px; background:var(--brand); width:0; transition: width .5s ease }
+.bar b{ margin-left:.4rem } .bar em{ float:right }
+
+/* ---------- Workout ---------- */
+.workout-wrap{ display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start }
+.workout-main{ flex:2 1 520px } .workout-side{ flex:1 1 300px }
+.workouts{ display:flex; flex-wrap:wrap; gap:12px; margin-top:8px }
+.workout-card{ flex:0 1 calc(33.333% - 12px); background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; box-shadow:0 6px 18px rgba(0,0,0,.25) }
+@media (max-width:900px){ .workout-card{ flex-basis: calc(50% - 12px) } }
+@media (max-width:540px){ .workout-card{ flex-basis: 100% } }
+.countdown{ font-weight:800; font-size:2.2rem; padding:.4rem 0 }
+.timer-controls{ display:flex; gap:.6rem; align-items:center; flex-wrap:wrap }
+
+/* ---------- Mindfulness ---------- */
+.breath-ui, .focus-ui{ display:flex; gap:1rem; align-items:center; flex-wrap:wrap }
+.circle{ width:160px; height:160px; border-radius:50%; background: radial-gradient(circle at 30% 30%, var(--brand), #0f2a20); box-shadow: 0 20px 50px rgba(34,197,94,.15) }
+@keyframes breathe{ 0%{transform:scale(1)} 50%{transform:scale(1.18)} 100%{transform:scale(1)} }
+.circle.breathing{ animation:breathe 4s ease-in-out infinite }
+.note{ color:var(--muted) }
+
+/* ---------- Contact ---------- */
+.contact-wrap{ display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap }
+.contact-main{ flex:2 1 600px; min-width:280px }
+.contact-side{ flex:1 1 320px; min-width:260px; display:flex; flex-direction:column; gap:12px }
+.contact-grid{ display:flex; flex-wrap:wrap; gap:12px; margin-top:.6rem }
+.contact-grid label{ flex:1 1 260px }
+.span-2{ flex-basis:100% }
+.map-embed{ width:100%; min-height:300px; border:0; border-radius:.9rem }
+
+/* Focus ring */
+a:focus, button:focus, input:focus, select:focus, textarea:focus{ outline:2px solid var(--brand); outline-offset:2px }
+
+/* Quick links on home hero (optional) */
+.quick-links{ display:flex; flex-wrap:wrap; gap:10px; margin-top:.6rem }
+.quick-links a{ display:inline-block; padding:.5rem .7rem; background:rgba(255,255,255,.06); border:1px solid var(--border); border-radius:.6rem; color:var(--text); text-decoration:none }
+.quick-links a:hover{ background:rgba(255,255,255,.1) }

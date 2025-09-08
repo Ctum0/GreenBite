@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GreenBite · Contact</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#48e38b">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.svg" alt="" />
+      <span>GreenBite</span>
+    </a>
+    <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">☰</button>
+    <ul id="nav-menu" class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="recipes.html">Recipes</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="workout.html">Workout</a></li>
+      <li><a href="mindfulness.html">Mindfulness</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+  <main id="main" class="container">
+    <h1>Contact</h1>
+    <div class="contact-wrap">
+      <section class="contact-main card">
+        <h2>Send us a message</h2>
+        <form id="contact-form" class="contact-grid" novalidate>
+          <label>Full name <input id="name" type="text" required minlength="2" placeholder="Your name" /></label>
+          <label>Email <input id="email" type="email" required placeholder="you@example.com" /></label>
+          <label>Subject <input id="subject" type="text" required minlength="3" placeholder="Subject" /></label>
+          <label class="span-2">Message <textarea id="message" rows="6" required minlength="10" placeholder="How can we help?"></textarea></label>
+          <div class="span-2">
+            <button class="btn" type="submit">Send message</button>
+            <span id="contact-status" aria-live="polite" class="mt-05"></span>
+          </div>
+        </form>
+      </section>
+      <aside class="contact-side">
+        <section class="card">
+          <h2>Info</h2>
+          <p>Email: <a class="link" href="mailto:hello@greenbite.example">hello@greenbite.example</a></p>
+          <p>Hours: Mon–Fri, 9.00–17.00</p>
+        </section>
+        <section class="card">
+          <h2>Find us</h2>
+          <iframe class="map-embed" title="Map" src="https://www.openstreetmap.org/export/embed.html?bbox=79.84,6.91,79.88,6.94&layer=mapnik&marker=6.9271,79.8612" loading="lazy"></iframe>
+          <p class="mt-05"><a class="link" target="_blank" rel="noopener" href="https://www.openstreetmap.org/?mlat=6.9271&mlon=79.8612#map=13/6.9271/79.8612">View larger map →</a></p>
+        </section>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer"><p>© <span id="year"></span> GreenBite</p></footer>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>

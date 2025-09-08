@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GreenBite · Recipes</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#48e38b">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.svg" alt="" />
+      <span>GreenBite</span>
+    </a>
+    <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">☰</button>
+    <ul id="nav-menu" class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="recipes.html">Recipes</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="workout.html">Workout</a></li>
+      <li><a href="mindfulness.html">Mindfulness</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+  <main id="main" class="container">
+    <h1>Recipes</h1>
+    <form class="controls" role="search">
+      <label>Search
+        <input id="search" type="search" placeholder="Find a recipe…" />
+      </label>
+      <label>Category
+        <select id="category">
+          <option value="all" selected>All</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+        </select>
+      </label>
+    </form>
+    <section id="recipe-grid" aria-live="polite" class="mt-1"></section>
+  </main>
+  <footer class="site-footer"><p>© <span id="year"></span> GreenBite</p></footer>
+
+  <div id="recipe-modal" class="modal" role="dialog" aria-modal="true" hidden>
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close recipe">&times;</button>
+      <h2 id="recipe-title"></h2>
+      <p id="recipe-desc"></p>
+      <img id="recipe-img" alt="" loading="lazy" />
+      <h3>Ingredients</h3>
+      <ul id="recipe-ingredients"></ul>
+      <h3>Steps</h3>
+      <ol id="recipe-steps"></ol>
+      <h3>Nutrition</h3>
+      <table class="nutrition">
+        <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+        <tbody id="recipe-nutrition"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/recipes.js"></script>
+</body>
+</html>

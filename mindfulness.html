@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GreenBite · Mindfulness</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#48e38b">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.svg" alt="" />
+      <span>GreenBite</span>
+    </a>
+    <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">☰</button>
+    <ul id="nav-menu" class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="recipes.html">Recipes</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="workout.html">Workout</a></li>
+      <li><a href="mindfulness.html">Mindfulness</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+  <main id="main" class="container">
+    <h1>Mindfulness</h1>
+
+    <section class="breath card mt-1">
+      <h2>Breathing Coach</h2>
+      <p id="breath-prompt">Press start to begin.</p>
+      <div class="breath-ui">
+        <div id="breath-circle" class="circle"></div>
+        <div class="breath-controls">
+          <label>Phase seconds
+            <input type="number" id="phase" min="2" max="10" value="4" />
+          </label>
+          <button id="breath-start" class="btn" type="button">Start</button>
+          <button id="breath-pause" type="button">Pause</button>
+          <button id="breath-reset" type="button">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="focus card mt-2">
+      <h2>Focus Timer</h2>
+      <div class="focus-ui">
+        <div id="focus-display" class="countdown">25:00</div>
+        <div class="focus-controls">
+          <label>Minutes
+            <input type="number" id="focus-mins" min="1" max="120" value="25" />
+          </label>
+          <button id="focus-start" class="btn" type="button">Start</button>
+          <button id="focus-pause" type="button">Pause</button>
+          <button id="focus-reset" type="button">Reset</button>
+          <button id="play-chime" type="button">Play chime</button>
+        </div>
+      </div>
+      <p class="note">A short chime plays when the timer reaches 0.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><p>© <span id="year"></span> GreenBite</p></footer>
+  <audio id="chime" src="assets/audio/chime.mp3" preload="auto"></audio>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/mindfulness.js"></script>
+</body>
+</html>
