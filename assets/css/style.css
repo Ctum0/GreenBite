@@ -17,7 +17,7 @@ body{
   background: var(--bg);
   color: var(--text);
   line-height:1.5;
-  display:flex;            /* sticky footer */
+  display:flex;            
   flex-direction:column;
 }
 img{ max-width:100%; display:block }
@@ -30,11 +30,11 @@ img{ max-width:100%; display:block }
 .link{ color:var(--brand); text-decoration:none }
 .link:hover{ text-decoration:underline }
 
-/* Skip link for accessibility */
+
 .skip-link{ position:absolute; left:-9999px }
 .skip-link:focus{ left:16px; top:10px; background:#000; color:#fff; padding:8px 10px; border-radius:6px; z-index:999 }
 
-/* Header / Nav (consistent) */
+/* Header / Nav  */
 .site-header{
   position:sticky; top:0; z-index:10;
   background:#0c1e18; border-bottom:1px solid var(--border);
@@ -165,7 +165,7 @@ button:hover{ filter:brightness(1.05) }
 /* Focus ring */
 a:focus, button:focus, input:focus, select:focus, textarea:focus{ outline:2px solid var(--brand); outline-offset:2px }
 
-/* Quick links on home hero (optional) */
+/* Quick links on home hero  */
 .quick-links{ display:flex; flex-wrap:wrap; gap:10px; margin-top:.6rem }
 .quick-links a{ display:inline-block; padding:.5rem .7rem; background:rgba(255,255,255,.06); border:1px solid var(--border); border-radius:.6rem; color:var(--text); text-decoration:none }
 .quick-links a:hover{ background:rgba(255,255,255,.1) }
