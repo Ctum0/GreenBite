@@ -1,14 +1,12 @@
 :root{
-  /* Light palette */
   --bg:#f6faf8;
   --surface:#ffffff;
   --text:#16261f;
   --muted:#6a7d73;
-  --brand:#10b981;        /* emerald */
+  --brand:#10b981;        
   --border:#e3eee8;
   --radius:.9rem;
 
-  /* Subtle elevation */
   --shadow-sm: 0 2px 8px rgba(16,24,40,.06);
   --shadow-md: 0 8px 24px rgba(16,24,40,.08);
 }
