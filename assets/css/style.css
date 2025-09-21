@@ -1,5 +1,7 @@
 :root{
-  --bg:#f6faf8;
+  /* --bg:#f6faf8; */
+  /* --bg:#a9e2cf; */
+  --bg:rgb(92, 176, 182);
   --surface:#ffffff;
   --text:#16261f;
   --muted:#6a7d73;
