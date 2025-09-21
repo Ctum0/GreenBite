@@ -1,6 +1,3 @@
-/* service-worker.js — network-first with offline fallback */
-
-
 const CACHE = 'gb-final-v1';
 const CORE = ['/', '/index.html', '/offline.html', '/assets/css/style.css', '/assets/js/utils.js'];
 
