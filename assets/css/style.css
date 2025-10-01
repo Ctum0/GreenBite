@@ -1,11 +1,16 @@
+/* THEME VARIABLES */
 :root{
+  /* PREVIOUS BG TRIALS (KEPT) */
   /* --bg:#f6faf8; */
   /* --bg:#a9e2cf; */
   /* --bg:rgb(92, 176, 182); */
   /* --bg:rgb(159, 238, 245); */
+
+  /* FINAL LAYERED BACKGROUND */
   --bg: radial-gradient(1000px 7000px at 20% 10%, #d9edf7, transparent 60%),
         radial-gradient(1000px 8000px at 80% 90%, #8aceee, transparent 60%),
         #beccf0;
+
   --surface:#ffffff;
   --text:#16261f;
   --muted:#6a7d73;
@@ -17,6 +22,7 @@
   --shadow-md: 0 8px 24px rgba(16,24,40,.08);
 }
 
+/* BASE / RESET */
 *{ box-sizing:border-box }
 html,body{ height:100% }
 body{
@@ -25,15 +31,18 @@ body{
   background: var(--bg); 
   color: var(--text);
   line-height:1.55;
+
+  /* LAYOUT FOR STICKY FOOTER */
   display:flex;
   flex-direction:column;
+
+  /* RENDERING TWEAKS */
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
-  
 }
 img{ max-width:100%; display:block }
 
-/* Utilities */
+/* UTILITIES */
 .container{ width:100%; max-width:1100px; margin:0 auto; padding:0 16px 24px;}
 .mt-05{ margin-top:.5rem } .mt-1{ margin-top:.8rem } .mt-2{ margin-top:1.2rem }
 .hidden{ display:none !important }
@@ -41,11 +50,11 @@ img{ max-width:100%; display:block }
 .link{ color:var(--brand); text-decoration:none }
 .link:hover{ text-decoration:underline }
 
-
+/* ACCESSIBILITY: SKIP LINK */
 .skip-link{ position:absolute; left:-9999px }
 .skip-link:focus{ left:16px; top:10px; background:#000; color:#fff; padding:8px 10px; border-radius:6px; z-index:999 }
 
-/* Header / Nav  */
+/* HEADER + NAV (DESKTOP) */
 .site-header{
   position:sticky; top:0; z-index:10;
   background:rgba(255,255,255,.85);
@@ -60,18 +69,21 @@ img{ max-width:100%; display:block }
 .menu a{ color:var(--text); text-decoration:none; padding:6px 8px; border-radius:8px }
 .menu a:hover{ background:rgba(16,185,129,.08) }
 .menu a[aria-current="page"]{ color:#065f46; font-weight:800; background:rgba(16,185,129,.14) }
+
+/* HAMBURGER (HIDDEN BY DEFAULT) */
 .hamburger{ display:none; background:#fff; border:1px solid var(--border); color:var(--text); padding:6px 8px; border-radius:.6rem; box-shadow:var(--shadow-sm) }
 
+/* RESPONSIVE NAV (MOBILE ≤ 760PX) */
 @media (max-width:760px){
   .hamburger{ display:inline-flex; align-items:center; justify-content:center }
   .menu{ display:none }
   .menu.open{ display:flex; flex-direction:column; gap:8px; background:#fff; padding:8px 0; border-top:1px solid var(--border) }
 }
 
-/* Footer */
+/* FOOTER */
 .site-footer{ margin-top:auto; padding:16px; text-align:center; color:var(--muted); border-top:1px solid var(--border); background:rgba(255,255,255,.85); }
 
-/* Card */
+/* CARD */
 .card{
   background:var(--surface);
   border:1px solid var(--border);
@@ -80,7 +92,7 @@ img{ max-width:100%; display:block }
   box-shadow:var(--shadow-md);
 }
 
-/* Forms */
+/* FORMS */
 label{ display:grid; gap:.35rem; font-weight:600 }
 input, select, textarea{
   padding:.7rem .8rem;
@@ -95,13 +107,15 @@ button{
   padding:.55rem .8rem; cursor:pointer; box-shadow:var(--shadow-sm);
 }
 button:hover{ filter:brightness(1.02); transform:translateY(-1px) }
+
+/* BUTTON: PRIMARY SHORTCUT */
 .btn{
   background:var(--brand); color:#ffffff; border:0;
   padding:.6rem .9rem; border-radius:.6rem; font-weight:800; text-decoration:none; display:inline-block; text-align:center; box-shadow:var(--shadow-sm);
 }
 .btn:hover{ filter:brightness(0.98) }
 
-/* ---------- Home ---------- */
+/* HOME: HERO + ART + FEATURE CARDS */
 .hero{ display:flex; gap:16px; flex-wrap:wrap; margin-top:1rem; align-items:stretch; min-height:60vh }
 .brand-card{ flex:1 1 520px; display:flex; gap:14px; align-items:center }
 .brand-logo{
@@ -121,10 +135,11 @@ button:hover{ filter:brightness(1.02); transform:translateY(-1px) }
 }
 .logo-art{ width:100%; height:100%; object-fit:contain; padding:20px; opacity:.50;}
 
+/* HOME: FEATURE CARDS ROW */
 .cards{ display:flex; flex-wrap:wrap; gap:20px; margin-top:-9rem }
 .cards .card{ flex:1 1 350px; text-align: justify; }
 
-/* ---------- Recipes ---------- */
+/* RECIPES: CONTROLS + GRID + MODAL */
 .controls{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.6rem }
 #recipe-grid{ display:flex; flex-wrap:wrap; gap:16px; margin-top:.8rem }
 .recipe-card{
@@ -135,15 +150,18 @@ button:hover{ filter:brightness(1.02); transform:translateY(-1px) }
   transition: transform .12s ease, box-shadow .12s ease;
 }
 .recipe-card:hover{ transform: translateY(-2px); box-shadow:0 12px 32px rgba(16,24,40,.10) }
+
+/* RECIPES: RESPONSIVE GRID (900PX → 2 COLS, 540PX → 1 COL) */
 @media (max-width:900px){ .recipe-card{ flex-basis: calc(50% - 16px) } }
 @media (max-width:540px){ .recipe-card{ flex-basis: 100% } }
+
 .recipe-card img{ width:100%; height:180px; object-fit:cover; background:#f3f7f5 }
 .recipe-body{ padding:12px; display:flex; flex-direction:column; gap:.35rem }
 .recipe-body p{ margin:0; color:var(--muted) }
 .pill{ display:inline-block; align-self:flex-start; margin-top:.3rem; border:1px solid var(--border); background:#f7fbf9; padding:.2rem .55rem; border-radius:100vmax; font-weight:700; font-size:.85rem; color:#065f46 }
 .empty{ width:100%; text-align:center; border:1px dashed var(--border); border-radius:var(--radius); padding:1rem; color:var(--muted); background:#fff }
 
-/* Modal */
+/* MODAL (RECIPE DETAILS) */
 .modal{ position:fixed; inset:0; background:rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; padding:16px }
 .modal[hidden]{ display:none }
 .modal-card{
@@ -154,7 +172,7 @@ button:hover{ filter:brightness(1.02); transform:translateY(-1px) }
 .nutrition{ width:100%; border-collapse:collapse; margin-top:.4rem; background:#fff }
 .nutrition th, .nutrition td{ border:1px solid var(--border); padding:.5rem; text-align:left }
 
-/* ---------- Calculator ---------- */
+/* CALCULATOR: LAYOUT + RESULTS + BARS */
 .layout-2col{ display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start }
 .layout-2col .col{ flex:1 1 320px }
 .form-grid{ display:flex; flex-wrap:wrap; gap:12px; margin-top:.6rem }
@@ -165,32 +183,41 @@ button:hover{ filter:brightness(1.02); transform:translateY(-1px) }
 .num span{ display:block; font-size:2rem; font-weight:800 }
 .num small{ color:var(--muted) }
 .bars{ display:flex; flex-direction:column; gap:.6rem; margin-top:1rem }
+
+/* CALCULATOR: MACRO BAR (WIDTH VIA JS) */
 .bar{ position:relative; padding:.35rem .8rem; border:1px solid var(--border); border-radius:100vmax; overflow:hidden; background:#f2f6f4 }
 .bar > span{ display:block; height:12px; background:var(--brand); width:0; transition: width .5s ease }
 .bar b{ margin-left:.4rem } .bar em{ float:right }
 
-/* ---------- Workout ---------- */
+/* WORKOUT: LAYOUT + CARDS + TIMER */
 .workout-wrap{ display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start }
 .workout-main{ flex:2 1 520px } .workout-side{ flex:1 1 300px }
 .workouts{ display:flex; flex-wrap:wrap; gap:12px; margin-top:8px }
-.workout-card{ flex:0 1 calc(33.333% - 12px); background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow-md) }
+.workout-card{
+  flex:0 1 calc(33.333% - 12px); background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow-md)
+}
+
+/* WORKOUT: RESPONSIVE GRID (900PX → 2 COLS, 540PX → 1 COL) */
 @media (max-width:900px){ .workout-card{ flex-basis: calc(50% - 12px) } }
 @media (max-width:540px){ .workout-card{ flex-basis: 100% } }
+
 .countdown{ font-weight:800; font-size:2.2rem; padding:.4rem 0 }
 .timer-controls{ display:flex; gap:.6rem; align-items:center; flex-wrap:wrap }
 
-/* ---------- Mindfulness ---------- */
+/* MINDFULNESS: BREATHING UI */
 .breath-ui, .focus-ui{ display:flex; gap:1rem; align-items:center; flex-wrap:wrap }
 .circle{
   width:160px; height:160px; border-radius:50%;
   background: radial-gradient(circle at 30% 30%, rgba(16,185,129,.55), #e9f6f1);
   box-shadow: 0 20px 50px rgba(16,185,129,.18);
 }
+/* MINDFULNESS: ANIMATION */
 @keyframes breathe{ 0%{transform:scale(1)} 50%{transform:scale(1.18)} 100%{transform:scale(1)} }
 .circle.breathing{ animation:breathe 4s ease-in-out infinite }
 .note{ color:var(--muted) }
 
-/* ---------- Contact ---------- */
+/* CONTACT: LAYOUT + FORM GRID + MAP */
 .contact-wrap{ display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap }
 .contact-main{ flex:2 1 600px; min-width:280px }
 .contact-side{ flex:1 1 320px; min-width:260px; display:flex; flex-direction:column; gap:12px }
@@ -199,12 +226,12 @@ button:hover{ filter:brightness(1.02); transform:translateY(-1px) }
 .span-2{ flex-basis:100% }
 .map-embed{ width:100%; min-height:300px; border:0; border-radius:.9rem; box-shadow:var(--shadow-sm) }
 
-/* Focus ring */
+/* FOCUS RING (ACCESSIBILITY) */
 a:focus, button:focus, input:focus, select:focus, textarea:focus{
   outline:2px solid rgba(16,185,129,.5); outline-offset:2px
 }
 
-/* Quick links on home hero  */
+/* QUICK LINKS (HOME HERO) */
 .quick-links{ display:flex; flex-wrap:wrap; gap:10px; margin-top:.6rem }
 .quick-links a{
   display:inline-block; padding:.5rem .7rem;

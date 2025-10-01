@@ -1,3 +1,4 @@
+/* CORE HELPERS (QS, QSA, READY) */
 window.gb = (function(){
   const qs  = (sel, el=document) => el.querySelector(sel);
   const qsa = (sel, el=document) => Array.from(el.querySelectorAll(sel));
@@ -7,6 +8,7 @@ window.gb = (function(){
     else document.addEventListener('DOMContentLoaded', fn);
   }
 
+  /* NAV MENU TOGGLE (MOBILE HAMBURGER) */
   function setupMenu(){
     const btn = qs('.hamburger'), menu = qs('#nav-menu');
     if(!btn || !menu) return;
@@ -17,6 +19,8 @@ window.gb = (function(){
     });
   }
 
+  /* FOOTER YEAR + NEWSLETTER SUBSCRIBE */
+  /* - Inserts current year into #year and stores emails in localStorage */
   function footerBasics(){
     const year = qs('#year'); if (year) year.textContent = new Date().getFullYear();
     const form = qs('#newsletter-form'); if (!form) return;
@@ -34,10 +38,11 @@ window.gb = (function(){
     });
   }
 
+  /* EXPORT API (MAKE HELPERS AVAILABLE GLOBALLY) */
   return { qs, qsa, ready, setupMenu, footerBasics };
 })();
 
-// Register service worker only on http(s) AND not localhost
+/* SERVICE WORKER REGISTER (ONLY ON HTTP(S) & NOT LOCALHOST) */
 if ('serviceWorker' in navigator &&
     location.protocol.startsWith('http') &&
     !/^(localhost|127\.0\.0\.1)$/i.test(location.hostname)) {

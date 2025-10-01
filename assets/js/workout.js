@@ -1,4 +1,6 @@
 (function(gb){
+
+  /* DATA (WORKOUT CATALOG) */
   const DATA = [
     { name:"Bodyweight Squats", 
       body:"Legs", 
@@ -46,11 +48,23 @@
       desc:"Band above knees, push them out." }
   ];
 
+  /* SHORTCUTS (QUERY + RANDOM SAMPLE) */
   const qs = gb.qs;
-  function sample(arr, k){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a.slice(0, Math.min(k,a.length)); }
+  function sample(arr, k){ 
+    const a=arr.slice(); 
+    for(let i=a.length-1;i>0;i--){ 
+      const j=Math.floor(Math.random()*(i+1)); 
+      [a[i],a[j]]=[a[j],a[i]]; 
+    } 
+    return a.slice(0, Math.min(k,a.length)); 
+  }
 
+  /* RENDER (PUT WORKOUT CARDS INTO #plan) */
   function render(list){
-    if(!list.length){ qs('#plan').innerHTML = `<div class="empty">No workouts match these filters.</div>`; return; }
+    if(!list.length){ 
+      qs('#plan').innerHTML = `<div class="empty">No workouts match these filters.</div>`; 
+      return; 
+    }
     qs('#plan').innerHTML = `<div class="workouts">` + list.map((w,i)=>`
       <article class="workout-card">
         <h3>${i+1}. ${w.name}</h3>
@@ -59,6 +73,7 @@
       </article>`).join('') + `</div>`;
   }
 
+  /* GENERATE (FILTER + PICK FIVE) */
   function generate(){
     const body = qs('#body').value, equip = qs('#equip').value;
     const pool = DATA.filter(w=>{
@@ -69,26 +84,51 @@
     render(sample(pool,5));
   }
 
-  // Timer
+  /* TIMER STATE */
   let running=false, remain=30, id=null;
-  function fmt(s){ const m=Math.floor(s/60).toString().padStart(2,'0'); const ss=(s%60).toString().padStart(2,'0'); return `${m}:${ss}`; }
+
+  /* TIMER HELPERS (FORMAT + UI + CHIME) */
+  function fmt(s){ 
+    const m=Math.floor(s/60).toString().padStart(2,'0'); 
+    const ss=(s%60).toString().padStart(2,'0'); 
+    return `${m}:${ss}`; 
+  }
   function display(){ qs('#countdown').textContent = fmt(remain); }
-  function chime(){ const a=document.querySelector('#chime'); if(a){ try{ a.currentTime=0; a.play(); }catch{} } }
+  function chime(){ 
+    const a=document.querySelector('#chime'); 
+    if(a){ try{ a.currentTime=0; a.play(); }catch{} } 
+  }
+
+  /* TIMER CONTROLS (START/PAUSE/RESET) */
   function start(){
     if(running) return;
-    running=true; remain = Math.max(5, Math.min(180, +qs('#seconds').value || 30));
+    running=true; 
+    remain = Math.max(5, Math.min(180, +qs('#seconds').value || 30));
     display();
     id = setInterval(()=>{
       remain--;
-      if(remain<=0){ chime(); remain = Math.max(5, Math.min(180, +qs('#seconds').value || 30)); }
+      if(remain<=0){ 
+        chime(); 
+        remain = Math.max(5, Math.min(180, +qs('#seconds').value || 30)); 
+      }
       display();
     },1000);
   }
-  function pause(){ running=false; clearInterval(id); id=null; }
-  function reset(){ pause(); remain = Math.max(5, Math.min(180, +qs('#seconds').value || 30)); display(); }
+  function pause(){ 
+    running=false; 
+    clearInterval(id); 
+    id=null; 
+  }
+  function reset(){ 
+    pause(); 
+    remain = Math.max(5, Math.min(180, +qs('#seconds').value || 30)); 
+    display(); 
+  }
 
+  /* INIT (ON DOM READY) */
   gb.ready(()=>{
-    gb.setupMenu(); gb.footerBasics();
+    gb.setupMenu(); 
+    gb.footerBasics();
     qs('#plan').innerHTML = `<div class="empty">Choose a <b>Body part</b> and <b>Equipment</b>, then press <b>Generate Plan</b>.</div>`;
     qs('#workout-form').addEventListener('submit', e=>{ e.preventDefault(); generate(); });
     qs('#start').addEventListener('click', start);

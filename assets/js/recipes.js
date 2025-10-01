@@ -1,3 +1,4 @@
+/* RECIPES DATA  */
 (function (gb) {
   const RECIPES = [
     { id:1, title:"Berry Oat Breakfast Bowl", 
@@ -33,6 +34,7 @@
       nutrition:{ Calories:"280 kcal", Protein:"8 g", Carbs:"32 g", Fat:"14 g" } }
   ];
 
+  /* DOM REFS (GRID, MODAL, FIELDS) */
   const grid   = gb.qs("#recipe-grid");
   const modal  = gb.qs("#recipe-modal");
   const titleEl= gb.qs("#recipe-title");
@@ -42,6 +44,7 @@
   const stepsEl= gb.qs("#recipe-steps");
   const nutEl  = gb.qs("#recipe-nutrition");
 
+  /* CARD TEMPLATE */
   function card(r){
     return `<article class="recipe-card" tabindex="0" data-id="${r.id}">
       <img src="${r.image}" alt="${r.title}" loading="lazy" />
@@ -53,6 +56,7 @@
     </article>`;
   }
 
+  /* BIND CARDS */
   function bindCards(){
     gb.qsa(".recipe-card", grid).forEach(el=>{
       const open = ()=> openModal(el.dataset.id);
@@ -61,12 +65,14 @@
     });
   }
 
+  /* RENDER GRID */
   function render(list){
     grid.innerHTML = list.length ? list.map(card).join("") : `<div class="empty">No recipes match your search.</div>`;
     bindCards();
     grid.setAttribute("aria-busy","false");
   }
 
+  /* MODAL OPEN (POPULATE DETAILS) */
   function openModal(id){
     const r = RECIPES.find(x => String(x.id)===String(id));
     if(!r) return;
@@ -78,8 +84,10 @@
     nutEl.innerHTML   = Object.entries(r.nutrition).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join("");
     modal.hidden = false;
   }
+  /* MODAL CLOSE */
   function closeModal(){ modal.hidden = true; }
 
+  /* FILTERS (SEARCH + CATEGORY) */
   function applyFilters(){
     const q = (gb.qs("#search").value || "").toLowerCase();
     const c = gb.qs("#category").value;
@@ -90,6 +98,7 @@
     render(list);
   }
 
+  /* INIT */
   gb.ready(()=>{
     gb.setupMenu();
     gb.footerBasics();
